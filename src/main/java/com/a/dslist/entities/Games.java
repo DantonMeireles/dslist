@@ -16,14 +16,18 @@ public class Games {
 	@Id // incrementando id como chave primaria
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment do id no banco
 	private Long id;
-	private String tittle;
+	private String title;
 	
 	@Column(name = "games_year") // fazendo isso pq 'year' é palavra reservada no banco
 	private Integer year;
 	private String genre;
-	private String plataform;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT") // Definindo como tipo texto, ao inves de VARCHAR
 	private String shortDescription;
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	// Constructor
@@ -31,14 +35,15 @@ public class Games {
 		
 	}
 	
-	public Games(Long id, String tittle, Integer year, String genre, String plataform,
+	public Games(Long id, String title, Integer year, String genre, String platforms, Double score,
 			String imgUrl, String shortDescription, String longDescription) {
 			
 				this.id = id;
-				this.tittle = tittle;
+				this.title = title;
 				this.year = year;
 				this.genre = genre;
-				this.plataform = plataform;
+				this.platforms = platforms;
+				this.score = score;
 				this.imgUrl = imgUrl;
 				this.shortDescription = shortDescription;
 				this.longDescription = longDescription;
@@ -55,12 +60,12 @@ public class Games {
 		this.id = id;
 	}
 
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Integer getYear() {
@@ -79,12 +84,19 @@ public class Games {
 		this.genre = genre;
 	}
 
-	public String getPlataform() {
-		return plataform;
+	public String getPlatforms() {
+		return platforms;
 	}
 
-	public void setPlataform(String plataform) {
-		this.plataform = plataform;
+	public void setPlatforms(String platforms) {
+		this.platforms = platforms;
+	}
+	
+	public Double getScore() {
+		return score;
+	}
+	
+	public void setScore(Double score) {
 	}
 
 	public String getImgUrl() {
